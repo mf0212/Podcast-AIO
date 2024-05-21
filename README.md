@@ -8,6 +8,8 @@
   ```bash
   git clone https://github.com/mf0212/Podcast-AIO.git
 
+  cd Podcast-AIO
+
   conda create -n podcast python=3.8
 
   conda activate podcast
@@ -61,6 +63,10 @@ python audio_processing/process_audio_podcast.py \
     --audio_directory data/podcast \
     --output_dir data/podcast/processed_audio \
     --podcast_file_path data/podcast/podcast_script.json
+```
+**OR RUN**
+```bash
+bash process_audio.sh
 ```
 
 
