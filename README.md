@@ -70,7 +70,7 @@ bash process_audio.sh
 ```
 
 
-Expectation processed podcast data:
+Processed podcast data expectation :
 
 ```
 data/
@@ -98,7 +98,7 @@ data/
 
 
 
-#### Guest / Host Talking
+#### Guest & Host Talking
 
 ```bash
 python inference.py  \
