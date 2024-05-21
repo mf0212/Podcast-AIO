@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Bạn có thể giải thích rõ hơn về Single-Frame CNN và cách thức hoạt động của nó trong Video Classification không?",
+        "duration": 6.218625
+    },
+    {
+        "subtitle": "Single-Frame CNN là một phương pháp đơn giản để phân loại video. Ý tưởng chính là huấn luyện một mạng CNN 2D thông thường để phân loại các khung hình video một cách độc lập. Sau đó, chúng ta sẽ lấy trung bình các xác suất dự đoán được tại thời điểm kiểm tra. Đây thường là một baseline vững chắc cho việc phân loại video.",
+        "duration": 20.223833333333335
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Bạn có thể cho một ví dụ cụ thể về cách thức hoạt động của Video Classification không?",
+        "duration": 4.917291666666666
+    },
+    {
+        "subtitle": "Chắc chắn rồi, giả sử chúng ta có một video về một người đang bơi. Input của bài toán là video đó, và mục tiêu của Video Classification là phân loại video đó thành nhãn 'Bơi'.",
+        "duration": 10.48525
+    }
+]

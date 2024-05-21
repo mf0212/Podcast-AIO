@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Bạn có thể giải thích rõ hơn về VideoMAE và cách thức hoạt động của nó không?",
+        "duration": 4.0852916666666665
+    },
+    {
+        "subtitle": "VideoMAE là một phương pháp Self-Supervised Learning cho dữ liệu video. Mô hình VideoMAE che một phần video và dự đoán nội dung bị che dựa trên phần còn lại của video. Phương pháp này cho phép mô hình tự học các đặc trưng của video mà không cần nhãn dữ liệu.",
+        "duration": 15.125208333333333
+    }
+]

@@ -1,0 +1,82 @@
+[
+    {
+        "question": "Chào mừng bạn đến với chương trình của chúng ta hôm nay! Rất vui được trò chuyện với một chuyên gia về AI như bạn. Trước tiên, bạn có thể cho chúng ta biết thêm về Video Classification là gì không?",
+        "answer": "Chào bạn, rất vui được tham gia chương trình. Video Classification là một nhiệm vụ trong lĩnh vực AI, mục tiêu là phân loại video thành một trong số các nhãn được định nghĩa trước. Ví dụ, chúng ta có thể phân loại video thành các nhãn như 'Bơi', 'Chạy', 'Nhảy' hoặc 'Đứng'.",
+        "slide": 2
+    },
+    {
+        "question": "Nghe hấp dẫn đấy! Vậy dữ liệu video được xử lý như thế nào trong bài toán này?",
+        "answer": "Video là một chuỗi các hình ảnh được phát theo trình tự thời gian, nên chúng ta có thể hiểu video là một dạng dữ liệu 2D cộng thêm yếu tố thời gian. Trong lĩnh vực AI, video thường được biểu diễn dưới dạng tensor 4 chiều với kích thước T x 3 x H x W. Trong đó, T là số lượng khung hình, 3 là số kênh màu (Red, Green, Blue), H là chiều cao và W là chiều rộng của mỗi khung hình.",
+        "slide": 4
+    },
+    {
+        "question": "Bạn có thể cho một ví dụ cụ thể về cách thức hoạt động của Video Classification không?",
+        "answer": "Chắc chắn rồi, giả sử chúng ta có một video về một người đang bơi. Input của bài toán là video đó, và mục tiêu của Video Classification là phân loại video đó thành nhãn 'Bơi'.",
+        "slide": 5
+    },
+    {
+        "question": "RWF2000 Dataset là gì và tại sao nó lại quan trọng trong nhiệm vụ phát hiện bạo lực?",
+        "answer": "RWF2000 Dataset là một tập dữ liệu quan trọng được sử dụng trong nhiệm vụ phát hiện bạo lực. Nó bao gồm 2000 video clip, mỗi clip dài 5 giây, được gán nhãn là 'Bạo lực' hoặc 'Không bạo lực'. Tập dữ liệu này được thu thập từ YouTube và mô phỏng các tình huống bạo lực trong thế giới thực, giúp các nhà nghiên cứu phát triển các mô hình AI hiệu quả hơn trong việc phát hiện bạo lực.",
+        "slide": 9
+    },
+    {
+        "question": "Việc xử lý video thường gặp phải những thách thức nào?",
+        "answer": "Video thường có kích thước rất lớn, nên việc xử lý chúng có thể tốn nhiều thời gian và tài nguyên. Ngoài ra, chất lượng video cũng có thể ảnh hưởng đến hiệu suất của mô hình AI. Ví dụ, video có độ phân giải thấp hoặc bị mờ có thể gây khó khăn cho việc nhận diện hành động.",
+        "slide": 7
+    },
+    {
+        "question": "Bạn có thể giải thích rõ hơn về Single-Frame CNN và cách thức hoạt động của nó trong Video Classification không?",
+        "answer": "Single-Frame CNN là một phương pháp đơn giản để phân loại video. Ý tưởng chính là huấn luyện một mạng CNN 2D thông thường để phân loại các khung hình video một cách độc lập. Sau đó, chúng ta sẽ lấy trung bình các xác suất dự đoán được tại thời điểm kiểm tra. Đây thường là một baseline vững chắc cho việc phân loại video.",
+        "slide": 16
+    },
+    {
+        "question": "Vậy còn Late Fusion và Early Fusion thì sao? Chúng khác gì so với Single-Frame CNN?",
+        "answer": "Late Fusion và Early Fusion là hai phương pháp khác để phân loại video. Late Fusion trích xuất thông tin cấp cao từ mỗi khung hình riêng lẻ, sau đó kết hợp chúng lại để phân loại toàn bộ video. Early Fusion kết hợp thông tin từ các khung hình trước khi trích xuất đặc trưng. Cả hai phương pháp này đều có ưu điểm và nhược điểm riêng.",
+        "slide": 19
+    },
+    {
+        "question": "CNN-LSTM là gì và nó được sử dụng như thế nào trong Video Classification?",
+        "answer": "CNN-LSTM là một mô hình kết hợp mạng CNN và mạng LSTM. Mạng CNN được sử dụng để trích xuất đặc trưng từ mỗi khung hình, sau đó mạng LSTM được sử dụng để xử lý thông tin chuỗi thời gian. Mô hình này có khả năng học được sự phụ thuộc theo thời gian giữa các khung hình, nhưng thời gian huấn luyện có thể lâu hơn so với các mô hình khác.",
+        "slide": 25
+    },
+    {
+        "question": "3D CNN là gì và nó có ưu điểm gì so với 2D CNN?",
+        "answer": "3D CNN là một loại mạng CNN được thiết kế để xử lý dữ liệu 3 chiều, ví dụ như video. 3D CNN có khả năng trích xuất thông tin không gian và thời gian từ video một cách hiệu quả hơn so với 2D CNN.",
+        "slide": 28
+    },
+    {
+        "question": "Bạn có thể giải thích thêm về Video ViT (ViViT) và cách thức hoạt động của nó không?",
+        "answer": "Video ViT (ViViT) là một mô hình dựa trên kiến trúc Vision Transformer (ViT). ViViT chia video thành các token, mỗi token đại diện cho một phần của video. Sau đó, các token này được đưa vào Transformer Encoder để học các biểu diễn không gian và thời gian. ViViT có khả năng đạt được hiệu suất cao trong nhiệm vụ Video Classification.",
+        "slide": 34
+    },
+    {
+        "question": "Self-Supervised Learning là gì và tại sao nó lại quan trọng trong lĩnh vực AI?",
+        "answer": "Self-Supervised Learning là một kỹ thuật học máy cho phép mô hình AI tự học các đặc trưng từ dữ liệu mà không cần nhãn dữ liệu. Kỹ thuật này rất hữu ích trong các trường hợp dữ liệu được gán nhãn khan hiếm hoặc tốn kém.",
+        "slide": 44
+    },
+    {
+        "question": "Bạn có thể giải thích rõ hơn về VideoMAE và cách thức hoạt động của nó không?",
+        "answer": "VideoMAE là một phương pháp Self-Supervised Learning cho dữ liệu video. Mô hình VideoMAE che một phần video và dự đoán nội dung bị che dựa trên phần còn lại của video. Phương pháp này cho phép mô hình tự học các đặc trưng của video mà không cần nhãn dữ liệu.",
+        "slide": 46
+    },
+    {
+        "question": "Trong VideoMAE, kỹ thuật Tube Masking được sử dụng như thế nào?",
+        "answer": "Tube Masking là một kỹ thuật che video theo một vùng hình ống dọc theo thời gian. Kỹ thuật này giúp giảm thiểu information leakage, tức là hiện tượng mô hình AI 'nhìn trộm' được thông tin từ phần bị che, từ đó tăng cường khả năng học tập của mô hình.",
+        "slide": 48
+    },
+    {
+        "question": "Theo bạn, mô hình AI nào là hiệu quả nhất trong nhiệm vụ Video Classification?",
+        "answer": "Mỗi mô hình AI đều có ưu điểm và nhược điểm riêng. Tuy nhiên, dựa trên kết quả so sánh hiệu suất, VideoMAE và ViViT là hai mô hình đạt được độ chính xác cao nhất trong nhiệm vụ Video Classification.",
+        "slide": 50
+    },
+    {
+        "question": "Bạn có lời khuyên nào cho những người mới bắt đầu tìm hiểu về Video Classification?",
+        "answer": "Lời khuyên của tôi là hãy bắt đầu với những mô hình đơn giản như Single-Frame CNN và dần dần tìm hiểu các mô hình phức tạp hơn như VideoMAE và ViViT. Ngoài ra, việc tìm hiểu về Self-Supervised Learning cũng rất quan trọng, vì kỹ thuật này có tiềm năng ứng dụng cao trong lĩnh vực Video Classification.",
+        "slide": 51
+    },
+    {
+        "question": "Cảm ơn bạn đã chia sẻ những kiến thức bổ ích về Video Classification. Bạn có muốn chia sẻ thêm điều gì với khán giả của chúng ta không?",
+        "answer": "Video Classification là một lĩnh vực nghiên cứu sôi động với nhiều tiềm năng ứng dụng trong thực tế. Tôi hy vọng bài thuyết trình này đã giúp các bạn hiểu rõ hơn về lĩnh vực này và khơi dậy niềm đam mê nghiên cứu AI.",
+        "slide": 52
+    }
+]

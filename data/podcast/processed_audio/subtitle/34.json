@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Bạn có thể giải thích thêm về Video ViT (ViViT) và cách thức hoạt động của nó không?",
+        "duration": 4.501291666666667
+    },
+    {
+        "subtitle": "Video ViT (ViViT) là một mô hình dựa trên kiến trúc Vision Transformer (ViT). ViViT chia video thành các token, mỗi token đại diện cho một phần của video. Sau đó, các token này được đưa vào Transformer Encoder để học các biểu diễn không gian và thời gian. ViViT có khả năng đạt được hiệu suất cao trong nhiệm vụ Video Classification.",
+        "duration": 20.4585
+    }
+]

@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Trong VideoMAE, kỹ thuật Tube Masking được sử dụng như thế nào?",
+        "duration": 3.9892916666666665
+    },
+    {
+        "subtitle": "Tube Masking là một kỹ thuật che video theo một vùng hình ống dọc theo thời gian. Kỹ thuật này giúp giảm thiểu information leakage, tức là hiện tượng mô hình AI 'nhìn trộm' được thông tin từ phần bị che, từ đó tăng cường khả năng học tập của mô hình.",
+        "duration": 13.46125
+    }
+]

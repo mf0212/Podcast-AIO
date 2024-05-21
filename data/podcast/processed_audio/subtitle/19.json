@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Vậy còn Late Fusion và Early Fusion thì sao? Chúng khác gì so với Single-Frame CNN?",
+        "duration": 7.533666666666667
+    },
+    {
+        "subtitle": "Late Fusion và Early Fusion là hai phương pháp khác để phân loại video. Late Fusion trích xuất thông tin cấp cao từ mỗi khung hình riêng lẻ, sau đó kết hợp chúng lại để phân loại toàn bộ video. Early Fusion kết hợp thông tin từ các khung hình trước khi trích xuất đặc trưng. Cả hai phương pháp này đều có ưu điểm và nhược điểm riêng.",
+        "duration": 20.789166666666667
+    }
+]

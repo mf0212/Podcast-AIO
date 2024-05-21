@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "CNN-LSTM là gì và nó được sử dụng như thế nào trong Video Classification?",
+        "duration": 5.610625
+    },
+    {
+        "subtitle": "CNN-LSTM là một mô hình kết hợp mạng CNN và mạng LSTM. Mạng CNN được sử dụng để trích xuất đặc trưng từ mỗi khung hình, sau đó mạng LSTM được sử dụng để xử lý thông tin chuỗi thời gian. Mô hình này có khả năng học được sự phụ thuộc theo thời gian giữa các khung hình, nhưng thời gian huấn luyện có thể lâu hơn so với các mô hình khác.",
+        "duration": 20.639875
+    }
+]

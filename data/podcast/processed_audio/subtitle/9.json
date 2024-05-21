@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "RWF2000 Dataset là gì và tại sao nó lại quan trọng trong nhiệm vụ phát hiện bạo lực?",
+        "duration": 5.333291666666667
+    },
+    {
+        "subtitle": "RWF2000 Dataset là một tập dữ liệu quan trọng được sử dụng trong nhiệm vụ phát hiện bạo lực. Nó bao gồm 2000 video clip, mỗi clip dài 5 giây, được gán nhãn là 'Bạo lực' hoặc 'Không bạo lực'. Tập dữ liệu này được thu thập từ YouTube và mô phỏng các tình huống bạo lực trong thế giới thực, giúp các nhà nghiên cứu phát triển các mô hình AI hiệu quả hơn trong việc phát hiện bạo lực.",
+        "duration": 21.855875
+    }
+]

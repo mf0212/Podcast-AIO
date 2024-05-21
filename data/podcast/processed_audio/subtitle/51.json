@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Bạn có lời khuyên nào cho những người mới bắt đầu tìm hiểu về Video Classification?",
+        "duration": 4.501291666666667
+    },
+    {
+        "subtitle": "Lời khuyên của tôi là hãy bắt đầu với những mô hình đơn giản như Single-Frame CNN và dần dần tìm hiểu các mô hình phức tạp hơn như VideoMAE và ViViT. Ngoài ra, việc tìm hiểu về Self-Supervised Learning cũng rất quan trọng, vì kỹ thuật này có tiềm năng ứng dụng cao trong lĩnh vực Video Classification.",
+        "duration": 17.770583333333335
+    }
+]

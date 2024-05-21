@@ -1,0 +1,10 @@
+[
+    {
+        "subtitle": "Nghe hấp dẫn đấy! Vậy dữ liệu video được xử lý như thế nào trong bài toán này?",
+        "duration": 6.476625
+    },
+    {
+        "subtitle": "Video là một chuỗi các hình ảnh được phát theo trình tự thời gian, nên chúng ta có thể hiểu video là một dạng dữ liệu 2D cộng thêm yếu tố thời gian. Trong lĩnh vực AI, video thường được biểu diễn dưới dạng tensor 4 chiều với kích thước T x 3 x H x W. Trong đó, T là số lượng khung hình, 3 là số kênh màu (Red, Green, Blue), H là chiều cao và W là chiều rộng của mỗi khung hình.",
+        "duration": 22.51725
+    }
+]
