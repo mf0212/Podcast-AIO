@@ -110,7 +110,7 @@ def make_animation(source_image, source_semantics, target_semantics,
         he_source = mapping(source_semantics)
         kp_source = keypoint_transformation(kp_canonical, he_source)
     
-        for frame_idx in tqdm(range(target_semantics.shape[1]), 'Face Renderer:'):
+        for frame_idx in range(target_semantics.shape[1]):
             # still check the dimension
             # print(target_semantics.shape, source_semantics.shape)
             target_semantics_frame = target_semantics[:, frame_idx]

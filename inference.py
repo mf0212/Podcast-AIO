@@ -1,4 +1,5 @@
 import os
+
 import cv2
 import torch.nn as nn
 import torch
@@ -8,6 +9,7 @@ import shutil
 import subprocess
 import io
 import tempfile
+from tqdm import tqdm
 from glob import glob
 from pydub import AudioSegment
 from argparse import ArgumentParser
@@ -128,8 +130,8 @@ def overlay_video_on_image(input_image_path, face_positions, video_paths, output
     os.remove(temp_video_path)
     os.remove(combined_audio_path)
 
-    check_disk_usage(tempdir)
-    check_memory_usage()
+    # check_disk_usage(tempdir)
+    # check_memory_usage()
 
 
 
@@ -147,8 +149,8 @@ def convert_audio_chunk_to_video(audio_chunk, pic_path, fallback_pic_path, args,
             print(f"Error detected during video conversion: {e}. Falling back to original image for {audio_path}")
             video_file = convert_audio_to_video(audio_path, fallback_pic_path, video_path, args)
     os.remove(audio_path)  # Remove the temporary audio file after use
-    check_disk_usage(tempdir)
-    check_memory_usage()
+    # check_disk_usage(tempdir)
+    # check_memory_usage()
     return video_file
 
 
@@ -219,6 +221,10 @@ def process_and_append_chunks(audio_path_guest, audio_path_host, pic_path_guest,
         prev_guest_pic_path = pic_path_guest
         prev_host_pic_path = pic_path_host
 
+        # Estimating total chunks for progress bar
+        total_chunks = max(len(list(chunk_audio_sequential(audio_path_guest, chunk_length_ms))), len(list(chunk_audio_sequential(audio_path_host, chunk_length_ms))))
+        pbar = tqdm(total=total_chunks, desc="Processing Chunks")
+
         while True:
             guest_future = None
             host_future = None
@@ -262,10 +268,14 @@ def process_and_append_chunks(audio_path_guest, audio_path_host, pic_path_guest,
 
                 os.remove(temp_overlay_video_path)
                 chunk_index += 1
+                pbar.update(1)
+
+        pbar.close()
 
     shutil.move(final_video_temp_path, final_video_path)
-    check_disk_usage(tempdir)
-    check_memory_usage()
+
+    # check_disk_usage(tempdir)
+    # check_memory_usage()
 
 
 
@@ -287,17 +297,18 @@ def aux_main(audio_path, pic_path, save_dir, args):
 
 
     if torch.cuda.device_count() > 1:
-        print(f"Using {torch.cuda.device_count()} GPUs for parallel processing.")
+        #print(f"Using {torch.cuda.device_count()} GPUs for parallel processing.")
         preprocess_model = nn.DataParallel(preprocess_model, device_ids=[1, 2, 3])
         audio_to_coeff = nn.DataParallel(audio_to_coeff, device_ids=[1, 2, 3])
         animate_from_coeff = nn.DataParallel(animate_from_coeff, device_ids=[1, 2, 3])
     else:
-        print("Using a single GPU.")
+        pass
+        #print("Using a single GPU.")
     preprocess_model.to(args.device)
     audio_to_coeff.to(args.device)
     animate_from_coeff.to(args.device)
 
-    print('3DMM Extraction for source image')
+    #print('3DMM Extraction for source image')
     if torch.cuda.device_count() > 1:
         first_coeff_path, crop_pic_path, crop_info = preprocess_model.module.generate(pic_path, first_frame_dir, args.preprocess, source_image_flag=True, pic_size=args.size)
     else:
@@ -314,7 +325,7 @@ def aux_main(audio_path, pic_path, save_dir, args):
         coeff_path = audio_to_coeff.generate(batch, save_dir, args.pose_style, None)
 
     if args.face3dvis:
-        from SadTalker.src.face3d.visualize import gen_composed_video
+        from src.face3d.visualize import gen_composed_video
         gen_composed_video(args, args.device, first_coeff_path, coeff_path, audio_path, os.path.join(save_dir, '3dface.mp4'))
 
     data = get_facerender_data(coeff_path, crop_pic_path, first_coeff_path, audio_path, args.batch_size, args.input_yaw, args.input_pitch, args.input_roll, expression_scale=args.expression_scale, still_mode=args.still, preprocess=args.preprocess, size=args.size)
@@ -327,7 +338,7 @@ def aux_main(audio_path, pic_path, save_dir, args):
     
     final_video_path = save_dir + '.mp4'
     shutil.move(result, final_video_path)
-    print('The generated video is named:', final_video_path)
+    #print('The generated video is named:', final_video_path)
 
     if not args.verbose:
         shutil.rmtree(save_dir)
@@ -381,7 +392,6 @@ def extract_faces(input_image_path, face_positions, output_dir):
         face_image_path = os.path.join(output_dir, face_image_name)
         cv2.imwrite(face_image_path, face_image)
         face_image_paths.append(face_image_path)
-        print("Path : ", face_image_paths)
         
         # Modify based on your file wav
         if i == 0:
@@ -409,14 +419,11 @@ def extract_faces(input_image_path, face_positions, output_dir):
 
 def run_ffmpeg_command(cmd):
     try:
-        result = subprocess.run(cmd, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print("FFmpeg output:", result.stdout.decode())
-        print("FFmpeg error (stderr):", result.stderr.decode())
+        result = subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         print("Error while running command: ", " ".join(e.cmd))
-        print("Standard output: ", e.stdout.decode())
-        print("Standard error: ", e.stderr.decode())
         raise
+
 
 
 
