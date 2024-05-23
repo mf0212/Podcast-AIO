@@ -15,7 +15,7 @@ def init_path(checkpoint_dir, config_dir, size=512, old_version=False, preproces
 
         use_safetensor = False
     elif len(glob.glob(os.path.join(checkpoint_dir, '*.safetensors'))):
-        print('using safetensor as default')
+        #print('using safetensor as default')
         sadtalker_paths = {
             "checkpoint":os.path.join(checkpoint_dir, 'SadTalker_V0.0.2_'+str(size)+'.safetensors'),
             }

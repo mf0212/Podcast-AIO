@@ -45,7 +45,7 @@ class KeypointExtractor():
         self.detector = init_alignment_model('awing_fan',device=device, model_rootpath=root_path)   
         self.det_net = init_detection_model('retinaface_resnet50', half=False,device=device, model_rootpath=root_path)
 
-    def extract_keypoint(self, images, name=None, info=True):
+    def extract_keypoint(self, images, name=None, info=False):
         if isinstance(images, list):
             keypoints = []
             if info:

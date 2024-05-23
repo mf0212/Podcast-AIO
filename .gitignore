@@ -1,0 +1,5 @@
+# Ignore the checkpoints folder
+checkpoints/
+
+# Ignore the gfpgan folder
+gfpgan/

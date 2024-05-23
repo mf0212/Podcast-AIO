@@ -220,7 +220,7 @@ class AnimateFromCoeff():
         word.export(new_audio_path, format="wav")
 
         save_video_with_watermark(path, new_audio_path, av_path, watermark= False)
-        print(f'The generated video is named {video_save_dir}/{video_name}') 
+        #print(f'The generated video is named {video_save_dir}/{video_name}') 
 
         if 'full' in preprocess.lower():
             # only add watermark to the full image.
@@ -228,7 +228,7 @@ class AnimateFromCoeff():
             full_video_path = os.path.join(video_save_dir, video_name_full)
             return_path = full_video_path
             paste_pic(path, pic_path, crop_info, new_audio_path, full_video_path, extended_crop= True if 'ext' in preprocess.lower() else False)
-            print(f'The generated video is named {video_save_dir}/{video_name_full}') 
+            #print(f'The generated video is named {video_save_dir}/{video_name_full}') 
         else:
             full_video_path = av_path 
 
@@ -247,7 +247,7 @@ class AnimateFromCoeff():
                 imageio.mimsave(enhanced_path, enhanced_images_gen_with_len, fps=float(25))
             
             save_video_with_watermark(enhanced_path, new_audio_path, av_path_enhancer, watermark= False)
-            print(f'The generated video is named {video_save_dir}/{video_name_enhancer}')
+            #print(f'The generated video is named {video_save_dir}/{video_name_enhancer}')
             os.remove(enhanced_path)
 
         os.remove(path)
